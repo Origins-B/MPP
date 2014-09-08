@@ -1,17 +1,16 @@
 package com.OriginsB;
 
 import java.util.ArrayList;
-
 public class Main {
-    public static int range = 5;
-    static ArrayList<Tile> tilearr = new ArrayList<Tile>();
-	public static void main(String[] args) {
-    for(int i=range; i>0; i++){
-    tilearr.add(new Tile(i+1, i));
-    }
-    for (Tile var : tilearr) {
-    	var.getTile();
-    }
-	}
+	
+public static boolean Tile_Needed = true; 
+public static int Range = 5;
+public static int Tiles = 0;
+public static int Tiles_Needed = Range-Tiles;
+public static ArrayList<Tile> TileArray = new ArrayList<Tile>(Range);
+public static int LastTile = 0;
 
+public static void main(String[] args){
+CheckTiles.checkTiles();
+}
 }
