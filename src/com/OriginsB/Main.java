@@ -4,9 +4,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Properties;
 public class Main {
-
-public static void main(String[] args){
-GameCanvas canvas = new GameCanvas();
-canvas.setVis(true);
+static GameCanvas canvas = new GameCanvas();
+public static boolean running = true;
+public static void main(String[] args) throws InterruptedException{
+GameFrame frame = new GameFrame();
+while(running){
+Thread.sleep(10);
+canvas.moveRect();
+}
 }
 }
