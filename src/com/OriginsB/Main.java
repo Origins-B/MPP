@@ -1,16 +1,19 @@
 package com.OriginsB;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Properties;
+import java.awt.Color;
+
+
 public class Main {
 static GameCanvas canvas = new GameCanvas();
 public static boolean running = true;
-public static void main(String[] args) throws InterruptedException{
-GameFrame frame = new GameFrame();
-while(running){
-Thread.sleep(10);
-canvas.moveRect();
+static GameFrame frame = new GameFrame();
+public static void main(String[] args){
+frame.setContentPane(canvas);
+canvas.setFocusable(true);
 }
+public static void GameLoop(){
+	System.out.println(canvas.XPos+" _ "+canvas.YPos);
+	frame.setBackground(Color.BLACK);
+	canvas.repaint();
 }
 }

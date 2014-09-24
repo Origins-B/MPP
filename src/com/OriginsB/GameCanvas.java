@@ -1,47 +1,29 @@
 package com.OriginsB;
 
 import java.awt.*;
-public class GameCanvas  extends Canvas{
-boolean X = true;
-boolean Y = true;
-int executed = 0;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+import javax.swing.*;
+public class GameCanvas extends JPanel{
+
 static int XPos = 0;
 static int YPos = 0;
 public GameCanvas(){
 	super();
-	this.setSize(480,360);
+	setSize(480,320);
+	setVisible(true);
+    this.setBackground(Color.BLACK);
 }
 public void paint(Graphics g){
-	g.drawRect(XPos, YPos, 80, 80);
-	g.fillRect(XPos, YPos, 80, 80);
-}
-public void moveRect(){
-	super.paint(getGraphics());
-	if(X){
-		if(XPos >= 400){
-			X=false;
-		}
-		XPos++;
+	BufferedImage img = null;
+	try {
+		img = ImageIO.read(getClass().getResource("/images/mario.png"));
+		} catch (IOException e) {
+		System.out.println("woups");
 	}
-	else{
-		XPos--;
-		if(XPos <= 0){
-			X=true;
-		}
-	}
-	if(Y){
-		YPos++;
-		if(YPos>260){
-			Y=false;
-		}
-		
-	}
-	else{
-		YPos--;
-		if(YPos<=0){
-			Y=true;
-		}
-	}
-	repaint();
+	g.drawImage(img, XPos, YPos, 32, 32, null);
 }
 }
