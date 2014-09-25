@@ -12,7 +12,7 @@ frame.setContentPane(canvas);
 canvas.setFocusable(true);
 }
 public static void GameLoop(){
-	System.out.println(canvas.XPos+" _ "+canvas.YPos);
+	System.out.println(GameCanvas.XPos+"=="+GameCanvas.YPos);
 	frame.setBackground(Color.BLACK);
 	canvas.repaint();
 }

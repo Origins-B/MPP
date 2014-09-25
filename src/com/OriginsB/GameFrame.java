@@ -3,6 +3,7 @@ import java.awt.Color;
 import java.awt.event.*;
 
 import javax.swing.*;
+@SuppressWarnings("serial")
 public class GameFrame extends JFrame implements KeyListener{
 JTextField field1 = new JTextField();
 public GameFrame(){
@@ -25,10 +26,8 @@ public void keyPressed(KeyEvent e) {
 	case KeyEvent.VK_UP: GameCanvas.YPos-=5; break;
 	case KeyEvent.VK_RIGHT: GameCanvas.XPos=GameCanvas.XPos+5; break;
 	case KeyEvent.VK_LEFT: GameCanvas.XPos-=5; break;
-	case KeyEvent.VK_SPACE: Main.running=!Main.running; break;
+	case KeyEvent.VK_SPACE: Main.canvas.repaint();
 	}
-	setBackground(Color.BLACK);
-	Main.GameLoop();
 }
 @Override
 public void keyReleased(KeyEvent e) {
